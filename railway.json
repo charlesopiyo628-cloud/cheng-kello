@@ -1,8 +1,15 @@
 {
   "build": {
-    "buildCommand": "composer install --no-interaction --optimize-autoloader"
-  },
-  "start": {
-    "startCommand": "php artisan serve --host=0.0.0.0 --port=${PORT}"
+    "builder": "nixpacks",
+    "nixpacks": {
+      "phases": {
+        "install": {
+          "cmds": ["composer install --no-interaction --optimize-autoloader"]
+        },
+        "start": {
+          "cmd": "php artisan serve --host=0.0.0.0 --port=${PORT}"
+        }
+      }
+    }
   }
 }
